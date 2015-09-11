@@ -46,6 +46,7 @@ public class AbstractCharacter : MonoBehaviour {
 		_input.y = Input.GetAxis ("Vertical"); 
 		_input.fire = Input.GetButtonDown ("Fire1");
 		_input.jump = Input.GetButtonDown ("Fire2");
+		//Debug.LogError (">> X=" + _input.x + " Y=" + _input.y);
 	}
 
     #region Collisions
@@ -55,12 +56,16 @@ public class AbstractCharacter : MonoBehaviour {
         {
             Debug.Log(this.name + " DIES");
             Destroy(this.gameObject);
+
+            ScoreGUI.scoreGUI.score += 200;
         } 
 
         if (canKill)
         {
             Debug.Log(this.name + " KILLS");
             Destroy(other.gameObject);
+
+            ScoreGUI.scoreGUI.score += 50;
         }
     }
     #endregion
