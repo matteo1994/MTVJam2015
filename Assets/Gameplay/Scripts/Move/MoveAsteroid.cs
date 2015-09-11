@@ -2,17 +2,13 @@
 using System.Collections;
 
 public class MoveAsteroid : MoveComponent {
-    public float speed = 10f;
     public float rotSpeed = 30f;
-
 	public float current_speed = 0f;
-	public float max_speed = 100f;
+	public float max_speed = 50f;
 	public float acceleration = 10f;
 
     public override void Move(InputParams _input)
     {
-        var tmpPos = this.transform.position;
-
 		Debug.Log ("X = " + _input.x+ " Y = " + _input.y);
 
 		if (_input.y > 0) {

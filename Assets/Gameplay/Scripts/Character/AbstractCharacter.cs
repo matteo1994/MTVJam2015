@@ -14,6 +14,8 @@ public class AbstractCharacter : MonoBehaviour {
     public static AbstractCharacter mainCharacter;
 
     MoveComponent moveComponent;
+	FireComponent fireComponent;
+
     AIComponent aiComponent;
 
     public bool isPlayer = false;
@@ -21,6 +23,7 @@ public class AbstractCharacter : MonoBehaviour {
     {
         if (isPlayer) mainCharacter = this;
         moveComponent = GetComponent<MoveComponent>();
+		fireComponent = GetComponent<FireComponent>();
         aiComponent = GetComponent<AIComponent>();
     }
 
@@ -32,6 +35,9 @@ public class AbstractCharacter : MonoBehaviour {
 
         if (moveComponent != null)
             moveComponent.Move(input);
+
+		if (fireComponent != null && input.fire)
+			fireComponent.Fire (input);
     }
 
     void GetPlayerInput(InputParams _input, int playerId)
