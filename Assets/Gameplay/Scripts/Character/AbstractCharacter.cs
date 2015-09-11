@@ -56,12 +56,16 @@ public class AbstractCharacter : MonoBehaviour {
         {
             Debug.Log(this.name + " DIES");
             Destroy(this.gameObject);
+
+            ScoreGUI.scoreGUI.score += 200;
         } 
 
         if (canKill)
         {
             Debug.Log(this.name + " KILLS");
             Destroy(other.gameObject);
+
+            ScoreGUI.scoreGUI.score += 50;
         }
     }
     #endregion
