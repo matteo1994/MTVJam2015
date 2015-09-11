@@ -9,8 +9,6 @@ public class MoveAsteroid : MoveComponent {
 
     public override void Move(InputParams _input)
     {
-        var tmpPos = this.transform.position;
-
 		Debug.Log ("X = " + _input.x+ " Y = " + _input.y);
 
 		if (_input.y > 0) {
