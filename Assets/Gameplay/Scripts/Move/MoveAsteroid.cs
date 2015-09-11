@@ -9,8 +9,6 @@ public class MoveAsteroid : MoveComponent {
 
     public override void Move(InputParams _input)
     {
-		Debug.Log ("X = " + _input.x+ " Y = " + _input.y);
-
 		if (_input.y > 0) {
 			current_speed = current_speed + acceleration * Time.deltaTime;
 			current_speed = Mathf.Min (current_speed, max_speed);

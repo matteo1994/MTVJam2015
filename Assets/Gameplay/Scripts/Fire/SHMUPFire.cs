@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AsteroidFire : FireComponent {
+public class SHMUPFire : FireComponent {
 
 	public GameObject missile;
 	private bool fire_enabled = true;
 
     public override void Fire(InputParams _input) {
 		if (fire_enabled) {
-			Instantiate (missile, transform.position + transform.up * 1.3f, transform.rotation);
+			Instantiate (missile, transform.position + transform.up * .7f, transform.rotation);
 			fire_enabled = false;
 			StartCoroutine(CannotFire());
 		}
@@ -17,7 +17,7 @@ public class AsteroidFire : FireComponent {
 	}
 
 	IEnumerator CannotFire() {
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(.1f);
 		fire_enabled = true;
 	}
 
