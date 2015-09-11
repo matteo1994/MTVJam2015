@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
         return go;
     }
 
-    void Clear()
+    public void Clear()
     {
         Destroy(this.currentPlayerGo);
     }

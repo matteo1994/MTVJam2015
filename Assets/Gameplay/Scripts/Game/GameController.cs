@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
 
     void ClearScene()
     {
-       // playerController.Clear();
-       // waveSpawner.Clear();
+        playerController.Clear();
+        waveSpawner.Clear();
     }
 }

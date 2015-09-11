@@ -21,7 +21,7 @@ public class WaveSpawner : MonoBehaviour {
         spawnedGos.Add(go);
     }
 
-    void Clear()
+    public void Clear()
     {
         foreach (var go in spawnedGos)
             Destroy(go);
