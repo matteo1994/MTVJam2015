@@ -42,10 +42,11 @@ public class AbstractCharacter : MonoBehaviour {
 
     void GetPlayerInput(InputParams _input, int playerId)
 	{
-		_input.x = Input.GetAxis ("Horizontal"); 
-		_input.y = Input.GetAxis ("Vertical"); 
-		_input.fire = Input.GetButtonDown ("Fire1");
-		_input.jump = Input.GetButtonDown ("Fire2");
+		_input.x = Input.GetAxis ("Horizontal_" + playerId); 
+		_input.y = Input.GetAxis ("Vertical_" + playerId); 
+		_input.fire = Input.GetButtonDown ("Fire1_"+playerId);
+        Debug.Log(_input.x + " " + playerId);
+		//_input.jump = Input.GetButtonDown ("Fire2_" + playerId);
 		//Debug.LogError (">> X=" + _input.x + " Y=" + _input.y);
 	}
 

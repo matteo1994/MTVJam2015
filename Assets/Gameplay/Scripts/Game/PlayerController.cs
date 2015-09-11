@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
     public GameObject[] spawnablePlayers;
 
-    private GameObject currentPlayerGo;
+    private List<GameObject> currentPlayerGos = new List<GameObject>();
 
-    public void SpawnNewPlayer()
+    public void SpawnNewPlayers()
     {
+        SpawnNewPlayer(0);
+        SpawnNewPlayer(1);
+    }
+
+    public void SpawnNewPlayer(int playerId) { 
         var playerPrefab = ChoosePlayer();
-        currentPlayerGo = Spawn(playerPrefab, this.transform.position);
+        var playerGo = Spawn(playerPrefab, this.transform.position);
+        playerGo.GetComponent<AbstractCharacter>().playerId = playerId;
+        currentPlayerGos.Add(playerGo);
     }
 
     GameObject Spawn(GameObject spawnPrefab, Vector3 pos)
@@ -21,7 +29,9 @@ public class PlayerController : MonoBehaviour {
 
     public void Clear()
     {
-        Destroy(this.currentPlayerGo);
+        foreach(var go in currentPlayerGos)
+            Destroy(go);
+        currentPlayerGos.Clear();
     }
 
     GameObject ChoosePlayer()

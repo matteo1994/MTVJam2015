@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour {
 	
 	void NewWave() {
         ClearScene();
-        playerController.SpawnNewPlayer();
+        playerController.SpawnNewPlayers();
         waveSpawner.SpawnWave();
         Invoke("NewWave", wavePeriod);
     }

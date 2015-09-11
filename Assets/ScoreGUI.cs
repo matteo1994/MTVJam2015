@@ -17,7 +17,7 @@ public class ScoreGUI : MonoBehaviour {
 
 	void Update () {
         score += 10 * Time.deltaTime;
-        textUi.text = "PUNTEGGIAME: " + score.ToString("0000000");
+        textUi.text =  score.ToString("0000000");
     }
 
 }

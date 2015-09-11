@@ -4,7 +4,8 @@ using System.Collections;
 public class MovePacman : MoveComponent {
     public float speed = 10;
 
-    Vector3 direction;
+    [HideInInspector]
+    public Vector3 direction;
 
     public override void Move(InputParams _input)
     {
