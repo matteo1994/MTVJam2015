@@ -40,7 +40,7 @@ public class AbstractCharacter : MonoBehaviour {
 		_input.y = Input.GetAxis ("Vertical"); 
 		_input.fire = Input.GetButtonDown ("Fire1");
 		_input.jump = Input.GetButtonDown ("Fire2");
-		Debug.LogError (">> X=" + _input.x + " Y=" + _input.y);
+		//Debug.LogError (">> X=" + _input.x + " Y=" + _input.y);
 	}
 
     #region Collisions
