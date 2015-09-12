@@ -3,10 +3,25 @@ guid: 592bd998d8c6fb74da36fba86aef05fa
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: GeoSphere03
+    100002: //RootNode
+    100004: Object02
+    100006: Object03
+    400000: GeoSphere03
+    400002: //RootNode
+    400004: Object02
+    400006: Object03
+    2300000: GeoSphere03
+    2300002: Object02
+    2300004: Object03
+    3300000: GeoSphere03
+    3300002: Object02
+    3300004: Object03
     4300000: GeoSphere03
     4300002: Object01
     4300004: Object02
     4300006: Object03
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 2

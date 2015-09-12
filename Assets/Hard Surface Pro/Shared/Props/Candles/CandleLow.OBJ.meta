@@ -3,7 +3,14 @@ guid: 3ed2510dfcef962419177676e2547772
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: CandleLow
+    100002: //RootNode
+    400000: CandleLow
+    400002: //RootNode
+    2300000: CandleLow
+    3300000: CandleLow
     4300000: CandleLow
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3

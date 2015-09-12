@@ -3,11 +3,22 @@ guid: 8e39efe6ced3b6c4aba3e2d375d3de03
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: Cone
+    100002: //RootNode
+    100004: Shape02
+    400000: Cone
+    400002: //RootNode
+    400004: Shape02
+    2300000: Cone
+    2300002: Shape02
+    3300000: Cone
+    3300002: Shape02
     4300000: Liquid
     4300002: Plane03
     4300004: Shape02
     4300006: Cone
     4300008: Base
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3
