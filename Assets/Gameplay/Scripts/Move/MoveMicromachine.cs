@@ -5,8 +5,10 @@ public class MoveMicromachine : MoveComponent {
     public float speed = 10;
     public float rotSpeed = 30;
 
+    public int rotDirection = 1;
+
     //private Vector3 direction = Vector3.up;
-      
+
     public override void Move(InputParams _input)
     {
         //Debug.Log(direction);
@@ -16,7 +18,7 @@ public class MoveMicromachine : MoveComponent {
 
         tmpPos += transform.up * _input.y * speed * Time.deltaTime;
 
-        transform.up = Quaternion.AngleAxis(rotSpeed * Time.deltaTime * _input.x, Vector3.forward) * transform.up;
+        transform.up = Quaternion.AngleAxis(rotSpeed * Time.deltaTime * _input.x * rotDirection, Vector3.forward) * transform.up;
 
         //transform.up = direction;
 

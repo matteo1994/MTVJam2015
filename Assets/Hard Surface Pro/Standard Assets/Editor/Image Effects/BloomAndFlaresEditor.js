@@ -1,4 +1,4 @@
-
+/*
 @script ExecuteInEditMode()
 @CustomEditor (BloomAndFlares)
 		
@@ -147,5 +147,7 @@ class BloomAndFlaresEditor extends Editor
         	//(target._dirty = true;
        }
        */
+/*
     }
 }
+*/

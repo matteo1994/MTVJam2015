@@ -4,20 +4,32 @@ using System.Collections.Generic;
 
 public class WaveSpawner : MonoBehaviour {
 
-    public Wave[] waves;
+    Wave[] waves;
+
+    public GameObject wavesGO;
 
     List<GameObject> spawnedGos = new List<GameObject>();
+
+    void Awake()
+    {
+        wavesGO.gameObject.SetActiveRecursively(true);
+        waves = wavesGO.GetComponentsInChildren<Wave>();
+        foreach (var w in waves)
+            w.gameObject.SetActive(false);
+    }
 
     public void SpawnWave()
     {
         Wave wave = ChooseWave();
-        foreach (var we in wave.waveGos)
-            Spawn(we, new Vector3(Random.Range(-10f, 10f), 10));
+        wave.gameObject.SetActive(true);
+        foreach (Transform we in wave.GetComponentInChildren<Transform>())
+            Spawn(we.gameObject, we.position, we.rotation);//, new Vector3(Random.Range(-10f, 10f), 10));
+        wave.gameObject.SetActive(false);
     }
 
-    void Spawn(GameObject spawnPrefab, Vector3 pos)
+    void Spawn(GameObject spawnPrefab, Vector3 pos, Quaternion rot)
     {
-        GameObject go = Instantiate(spawnPrefab, pos, Quaternion.identity) as GameObject;
+        GameObject go = Instantiate(spawnPrefab, pos, rot) as GameObject;
         spawnedGos.Add(go);
     }
 
