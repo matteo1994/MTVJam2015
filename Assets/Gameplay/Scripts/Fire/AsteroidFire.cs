@@ -8,6 +8,7 @@ public class AsteroidFire : FireComponent {
 
     public override void Fire(InputParams _input) {
 		if (fire_enabled) {
+			SoundManager.instance.PlayFire();
 			Instantiate (missile, transform.position + transform.up * 1.3f, transform.rotation);
 			fire_enabled = false;
 			StartCoroutine(CannotFire());

@@ -4,6 +4,10 @@ using System.Collections;
 public class MovePacman : MoveComponent {
     public float speed = 10;
 
+	public void Start() {
+		SoundManager.instance.PlayPacman ();
+	}
+
     [HideInInspector]
     public Vector3 direction;
 
@@ -25,5 +29,9 @@ public class MovePacman : MoveComponent {
         //tmpPos.y += _input.y * speed * Time.deltaTime;
         this.transform.position = tmpPos;
     }
+
+	public void OnDestroy() {
+		SoundManager.instance.StopPong ();
+	}
 
 }

@@ -19,6 +19,8 @@ public class SoundManager : MonoBehaviour {
 
 	public AudioSource pong;
 
+	public AudioSource[] fire = new AudioSource[5];
+
 	static private SoundManager _instance = null;
 	int current_background = 0;
 
@@ -37,19 +39,19 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	void Start() {
-		//PlayBackground ();
+		PlayBackground ();
 		//PlayPacman ();
 		//PlayFrogger ();
 		//PlayAsteroids ();
 		//PlayFrogger ();
 		//PlaySHMUP ();
 		//PlayPong ();
-		PlayMario();
+		//PlayMario();
 
 	}
 
 	public void PlayBackground() {
-		current_background = Random.Range (0, 4);
+		current_background = Random.Range (0, 3);
 		audio_background [current_background].Play ();
 	}
 
@@ -59,11 +61,13 @@ public class SoundManager : MonoBehaviour {
 
 	#region Pacman
 	public void PlayPacman() {
+		audio_background [current_background].volume = .8f;
 		pacman.Play ();
 	}
 	
 	public void StopPacman() {
 		pacman.Stop ();
+		audio_background [current_background].volume = 1f;
 	}
 	#endregion
 
@@ -109,7 +113,7 @@ public class SoundManager : MonoBehaviour {
 
 	#region Mario
 	public void PlayMario() {
-		mario [Random.Range (0, 4)].Play ();
+		mario [Random.Range (0, 3)].Play ();
 	}
 	
 	public void StopMario() {
@@ -118,6 +122,12 @@ public class SoundManager : MonoBehaviour {
 		mario [2].Stop ();
 	}
 
+	#endregion
+
+	#region Fire
+	public void PlayFire() {
+		fire [Random.Range (0, 5)].Play ();
+	}	
 	#endregion
 
 }

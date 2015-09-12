@@ -10,6 +10,7 @@ public class SHMUPFire : FireComponent {
 		if (fire_enabled) {
 			Instantiate (missile, transform.position + transform.up * .7f, transform.rotation);
 			fire_enabled = false;
+			SoundManager.instance.PlayFire();
 			StartCoroutine(CannotFire());
 		}
 	}
