@@ -3,11 +3,13 @@ using System.Collections;
 
 public class MovePong : MoveComponent {
 
-	public float speed = 3f;
+	private float speed = 10f;
     public bool is_vertical = false;
 
 	public void Awake()
 	{
+		SoundManager.instance.PlayPong ();
+
 		if (is_vertical)
 			transform.position = new Vector3 (8.5f, 0, 0);
 		else 
@@ -27,6 +29,10 @@ public class MovePong : MoveComponent {
 			if (_input.x > 0)
 				transform.position += Vector3.right * Time.deltaTime * speed; 
 		}
+	}
+
+	public void OnDestroy() {
+		SoundManager.instance.StopPong ();
 	}
 
     //public override void Action (ActionParams _action) {}
