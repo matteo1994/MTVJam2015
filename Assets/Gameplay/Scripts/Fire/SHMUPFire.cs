@@ -12,8 +12,6 @@ public class SHMUPFire : FireComponent {
 			fire_enabled = false;
 			StartCoroutine(CannotFire());
 		}
-
-
 	}
 
 	IEnumerator CannotFire() {

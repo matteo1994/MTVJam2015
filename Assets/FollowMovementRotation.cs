@@ -12,6 +12,6 @@ public class FollowMovementRotation : MonoBehaviour {
 
     void Update()
     {
-        this.transform.forward = mover.direction;
+       // this.transform.forward = mover.direction;
     }
 }

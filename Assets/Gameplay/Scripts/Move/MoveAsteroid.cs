@@ -7,6 +7,8 @@ public class MoveAsteroid : MoveComponent {
 	public float max_speed = 50f;
 	public float acceleration = 10f;
 
+     Vector3 direction = Vector3.zero;
+
     public override void Move(InputParams _input)
     {
 		if (_input.y > 0) {
@@ -14,11 +16,16 @@ public class MoveAsteroid : MoveComponent {
 			current_speed = Mathf.Min (current_speed, max_speed);
 		}
 
-		transform.Rotate (- _input.x * rotSpeed * Time.deltaTime * Vector3.forward);
+        //transform.Rotate (- _input.x * rotSpeed * Time.deltaTime * Vector3.forward);
+        transform.up = Quaternion.AngleAxis(-rotSpeed * Time.deltaTime * _input.x, Vector3.forward) * transform.up;
+        //transform.up = direction;
 
-		this.transform.position = this.transform.position + transform.up*current_speed*Time.deltaTime;
+        if (_input.y > 0)
+            direction = direction + transform.up * _input.y * Time.deltaTime;
 
-        Debug.DrawLine(this.transform.position, this.transform.position + transform.up * 2);
+        this.transform.position = this.transform.position + direction * current_speed * Time.deltaTime;
+
+        //Debug.DrawLine(this.transform.position, this.transform.position + transform.up * 2);
     }
 
 }

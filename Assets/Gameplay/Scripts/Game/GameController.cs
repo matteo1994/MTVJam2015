@@ -10,6 +10,13 @@ public enum GamePhase
 
 public class GameController : MonoBehaviour {
 
+    public static GameController Instance;
+
+    public void Awake()
+    {
+        Instance = this;
+    }
+
     public WaveSpawner waveSpawner;
     public PlayerController playerController;
 
@@ -17,6 +24,10 @@ public class GameController : MonoBehaviour {
     public float wavePause = 2f;
 
     public float introPause = 3f;
+
+
+    public int pl1Life = 3;
+    public int pl2Life = 3;
 
 
     public float timeScaleIncrease = 0.1f;
@@ -34,6 +45,7 @@ public class GameController : MonoBehaviour {
         Time.timeScale += timeScaleIncrease * Time.deltaTime;
        // Debug.Log(Time.timeScale);
     }
+
 	
     void RespawnPlayers()
     {
@@ -41,7 +53,30 @@ public class GameController : MonoBehaviour {
         playerController.SpawnNewPlayers();
     }
 
-	void NewWave()
+    public void KillPlayer(int id)
+    {
+        if (id == 0)
+        {
+            pl1Life--;
+            Invoke("RespawnPlayer1", 1.0f);
+        }
+        else
+        {
+            pl2Life--;
+            Invoke("RespawnPlayer2", 1.0f);
+        }
+    }
+
+    void RespawnPlayer1()
+    {
+        playerController.SpawnNewPlayer(0);
+    }
+    void RespawnPlayer2()
+    {
+        playerController.SpawnNewPlayer(1);
+    }
+
+    void NewWave()
     {
         waveSpawner.Clear();
         waveSpawner.SpawnWave();

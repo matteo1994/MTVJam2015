@@ -5,15 +5,12 @@ public class Die : MonoBehaviour {
     public bool isDown = false;
     public bool isUp = false;
 
-    //float x_limit = 11f;
-    float y_limit = 7.5f;
-
     void Update () {
         if (isUp)
-            if (transform.position.y > y_limit)
-                Destroy(this.gameObject);// GetComponent<AbstractCharacter>().direction.y *= -1;
+            if (transform.position.y > ConstVar.Y_LIMIT)
+                Destroy(this.gameObject);
         if (isDown)
-            if (transform.position.y < -y_limit)
+            if (transform.position.y < -ConstVar.Y_LIMIT)
                 Destroy(this.gameObject);
     } 
 }

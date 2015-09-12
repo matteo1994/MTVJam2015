@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject[] spawnablePlayers;
 
-    private List<GameObject> currentPlayerGos = new List<GameObject>();
+    private List<AbstractCharacter> currentPlayers = new List<AbstractCharacter>();
 
     public void SpawnNewPlayers()
     {
@@ -17,9 +17,10 @@ public class PlayerController : MonoBehaviour {
     public void SpawnNewPlayer(int playerId) { 
         var playerPrefab = ChoosePlayer();
         var playerGo = Spawn(playerPrefab, this.transform.position);
-        playerGo.GetComponent<AbstractCharacter>().playerId = playerId;
-        currentPlayerGos.Add(playerGo);
+        playerGo.GetComponent<AbstractCharacter>().SetPlayer(playerId);
+        currentPlayers.Add(playerGo.GetComponent<AbstractCharacter>());
     }
+
 
     GameObject Spawn(GameObject spawnPrefab, Vector3 pos)
     {
@@ -29,9 +30,9 @@ public class PlayerController : MonoBehaviour {
 
     public void Clear()
     {
-        foreach(var go in currentPlayerGos)
-            Destroy(go);
-        currentPlayerGos.Clear();
+        foreach(var c in currentPlayers)
+            Destroy(c.gameObject);
+        currentPlayers.Clear();
     }
 
     GameObject ChoosePlayer()

@@ -9,18 +9,20 @@ public class AbstractCharacter : MonoBehaviour {
     public bool canDie = false;
     public bool canKill = false;
 
-    public int playerId = 0;
+    public int playerId = -5;
 
     public static AbstractCharacter mainCharacter;
 
+    public GameObject explosionPrefabGo;
+
     MoveComponent moveComponent;
 	FireComponent fireComponent;
-
     AIComponent aiComponent;
 
     public bool isPlayer = false;
     void Start()
     {
+        explosionPrefabGo = Resources.Load("Explosion") as GameObject;
         if (isPlayer) mainCharacter = this;
         moveComponent = GetComponent<MoveComponent>();
 		fireComponent = GetComponent<FireComponent>();
@@ -50,13 +52,22 @@ public class AbstractCharacter : MonoBehaviour {
 		//Debug.LogError (">> X=" + _input.x + " Y=" + _input.y);
 	}
 
+    public void SetPlayer(int playerId)
+    {
+        this.playerId = playerId;
+    }
+
     #region Collisions
     void OnCollisionEnter(Collision other)
     {
         if (canDie)
         {
-            Debug.Log(this.name + " DIES");
+            Debug.Log(this.name + " DIES " + playerId);
+            Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
             Destroy(this.gameObject);
+
+            if (this.isPlayer)
+                GameController.Instance.KillPlayer(playerId);
 
             ScoreGUI.scoreGUI.score += 200;
         } 
