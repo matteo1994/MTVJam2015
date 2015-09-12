@@ -3,9 +3,20 @@ guid: 4e8c4713878b958419fe594f610ef8c2
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cylinder01
+    100004: Object01
+    400000: //RootNode
+    400002: Cylinder01
+    400004: Object01
+    2300000: Cylinder01
+    2300002: Object01
+    3300000: Cylinder01
+    3300002: Object01
     4300000: Cylinder01
     4300002: Skull
     4300004: Object01
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3

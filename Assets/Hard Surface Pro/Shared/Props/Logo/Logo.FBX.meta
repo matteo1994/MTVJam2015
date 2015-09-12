@@ -3,6 +3,20 @@ guid: 725f85cf272d1c543a61ba4cb40f161d
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
+    100000: Aluminium
+    100002: //RootNode
+    100004: Red Glass
+    100006: Sphere
+    400000: Aluminium
+    400002: //RootNode
+    400004: Red Glass
+    400006: Sphere
+    2300000: Aluminium
+    2300002: Red Glass
+    2300004: Sphere
+    3300000: Aluminium
+    3300002: Red Glass
+    3300004: Sphere
     4300000: Text01
     4300002: Text02
     4300004: Line01
@@ -15,6 +29,7 @@ ModelImporter:
     4300018: Aluminium
     4300020: Sphere
     4300022: Red Glass
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 3
