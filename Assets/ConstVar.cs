@@ -9,9 +9,8 @@ using System.Collections;
  */
 
 public class ConstVar : MonoBehaviour {
-
     
-    public const float X_LIMIT = 6.5f;
-    public const float Y_LIMIT = 5.5f;
+    public const float X_LIMIT = 8f;
+    public const float Y_LIMIT = 6f;
 
 }

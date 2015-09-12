@@ -25,6 +25,8 @@ public class GameController : MonoBehaviour {
 
     public float introPause = 3f;
 
+    public float respawnDelay = 2.0f;
+
 
     public int pl1Life = 3;
     public int pl2Life = 3;
@@ -58,21 +60,25 @@ public class GameController : MonoBehaviour {
         if (id == 0)
         {
             pl1Life--;
-            Invoke("RespawnPlayer1", 1.0f);
+            Debug.Log("PLAYER 0 LIFE " + pl1Life);
+            Invoke("RespawnPlayer1", respawnDelay);
         }
         else
         {
             pl2Life--;
-            Invoke("RespawnPlayer2", 1.0f);
+            Debug.Log("PLAYER 1 LIFE " + pl2Life);
+            Invoke("RespawnPlayer2", respawnDelay);
         }
     }
 
     void RespawnPlayer1()
     {
+        Debug.Log("RESPAWN PLAYER 0");
         playerController.SpawnNewPlayer(0);
     }
     void RespawnPlayer2()
     {
+        Debug.Log("RESPAWN PLAYER 1");
         playerController.SpawnNewPlayer(1);
     }
 

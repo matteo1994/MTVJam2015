@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
         var playerGo = Spawn(playerPrefab, this.transform.position);
         playerGo.GetComponent<AbstractCharacter>().SetPlayer(playerId);
         currentPlayers.Add(playerGo.GetComponent<AbstractCharacter>());
+        Debug.Log("SPAWNED PLAYER " + playerId);
     }
 
 
