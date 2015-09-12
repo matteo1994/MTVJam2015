@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject[] spawnablePlayers;
 
-    private List<AbstractCharacter> currentPlayers = new List<AbstractCharacter>();
+    public List<AbstractCharacter> currentPlayers = new List<AbstractCharacter>();
 
     public void SpawnNewPlayers()
     {
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
         var playerGo = Spawn(playerPrefab, this.transform.position);
         playerGo.GetComponent<AbstractCharacter>().SetPlayer(playerId);
         currentPlayers.Add(playerGo.GetComponent<AbstractCharacter>());
-        Debug.Log("SPAWNED PLAYER " + playerId);
+        Debug.Log("SPAWNED PLAYER " + playerId + " " + playerGo.name);
     }
 
 
