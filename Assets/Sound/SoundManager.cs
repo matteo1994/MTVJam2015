@@ -132,4 +132,10 @@ public class SoundManager : MonoBehaviour {
 	}	
 	#endregion
 
+	#region Explosion
+	public void PlayExplosion() {
+		explosion [Random.Range (0, 5)].Play ();
+	}	
+	#endregion
+
 }
