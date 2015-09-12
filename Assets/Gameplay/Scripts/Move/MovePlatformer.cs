@@ -7,8 +7,8 @@ public class MovePlatformer : MoveComponent {
 	PlatformerChar platformerChar;
 
 	float y0 = 0f;
-	float height = 1.5f; 
-	float offset = 1f;
+	float height = 1.2f; 
+	float offset = .1f;
 
 	class Cinematic {
 		public float x;
@@ -22,7 +22,7 @@ public class MovePlatformer : MoveComponent {
 
 	public bool onPlatform = true;
 	public bool isJumping = false;
-	private float speed = 10f;
+	private float speed = 5f;
 
 	private float gravity = 50f;
 
@@ -68,9 +68,9 @@ public class MovePlatformer : MoveComponent {
     }
 
 	void Update() {
-		if (transform.position.y < 5.5f) {
+		if (transform.position.y < -5.5f) {
 			Debug.LogError("I AM DYING!");
-
+			platformerChar.Kill();
 		}
 	}
 
@@ -91,6 +91,12 @@ public class MovePlatformer : MoveComponent {
 	}
 	
 	void OnTriggerExit(Collider other) {
-		onPlatform = false;
+		Vector3 d = transform.position - other.gameObject.transform.position;
+		
+//		Debug.LogError("D = "+d);
+//		if (d.y < .1)
+//			onPlatform = true;
+//		else
+			onPlatform = false;
 	}
 }

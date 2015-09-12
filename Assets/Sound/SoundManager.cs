@@ -21,6 +21,8 @@ public class SoundManager : MonoBehaviour {
 
 	public AudioSource[] fire = new AudioSource[5];
 
+	public AudioSource[] explosion = new AudioSource[3];
+
 	static private SoundManager _instance = null;
 	int current_background = 0;
 
