@@ -3,8 +3,10 @@ using System.Collections;
 
 public class AsteroidChar : AbstractCharacter {
 
-	void Start() {
-		SoundManager.instance.PlayAsteroids ();
+    public override void Start()
+    {
+        base.Start();
+        SoundManager.instance.PlayAsteroids ();
 	}
 
 }

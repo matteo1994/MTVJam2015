@@ -2,8 +2,11 @@
 using System.Collections;
 
 public class SHMUPChar : AbstractCharacter {
-	void Start() {
-		SoundManager.instance.PlaySHMUP ();
+
+    public override void Start()
+    {
+        base.Start();
+        SoundManager.instance.PlaySHMUP ();
 	}
 
 }

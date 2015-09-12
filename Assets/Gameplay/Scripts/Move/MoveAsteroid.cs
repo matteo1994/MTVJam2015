@@ -25,7 +25,7 @@ public class MoveAsteroid : MoveComponent {
 
         this.transform.position = this.transform.position + direction * current_speed * Time.deltaTime;
 
-        //Debug.DrawLine(this.transform.position, this.transform.position + transform.up * 2);
+        Debug.DrawLine(this.transform.position, this.transform.position + transform.up * 2);
     }
 
 }

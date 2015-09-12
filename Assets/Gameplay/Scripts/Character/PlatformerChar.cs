@@ -2,7 +2,20 @@
 using System.Collections;
 
 public class PlatformerChar : AbstractCharacter {
-   void Start() {
-		SoundManager.instance.PlayMario ();
-	}
+
+    public GameObject levelGo;
+
+    public override void Start()
+    {
+        base.Start();
+        SoundManager.instance.PlayMario ();
+
+        levelGo.transform.parent = null;
+    }
+
+    void OnDestroy()
+    {
+        Destroy(levelGo);
+    }
+
 }

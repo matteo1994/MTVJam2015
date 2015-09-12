@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject[] spawnablePlayers;
 
-    private List<AbstractCharacter> currentPlayers = new List<AbstractCharacter>();
+    public List<AbstractCharacter> currentPlayers = new List<AbstractCharacter>();
 
     public void SpawnNewPlayers()
     {

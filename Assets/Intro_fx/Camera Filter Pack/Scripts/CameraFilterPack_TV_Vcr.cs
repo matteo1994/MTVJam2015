@@ -11,7 +11,7 @@ public class CameraFilterPack_TV_Vcr : MonoBehaviour {
 	#region Variables
 	public Shader SCShader;
 	private float TimeX = 1.0f;
-	[Range(1, 4)]
+	[Range(0, 4)]
 	public float Distortion = 1.0f;
 	private Material SCMaterial;
 

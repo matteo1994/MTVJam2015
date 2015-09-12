@@ -3,8 +3,10 @@ using System.Collections;
 
 public class PongCharacter : AbstractCharacter
 {
-	void Start() {
-		SoundManager.instance.PlayPong ();
-	}
+	public override void Start()
+    {
+        base.Start();
+    SoundManager.instance.PlayPong ();
+    }
 
 }
