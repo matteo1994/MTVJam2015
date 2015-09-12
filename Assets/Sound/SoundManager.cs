@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour {
 
 	public AudioSource pong;
 
-	public AudioSource[] fire = new AudioSource[3];
+	public AudioSource[] fire = new AudioSource[5];
 
 	static private SoundManager _instance = null;
 	int current_background = 0;
@@ -51,7 +51,7 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public void PlayBackground() {
-		current_background = Random.Range (0, 4);
+		current_background = Random.Range (0, 3);
 		audio_background [current_background].Play ();
 	}
 
@@ -113,7 +113,7 @@ public class SoundManager : MonoBehaviour {
 
 	#region Mario
 	public void PlayMario() {
-		mario [Random.Range (0, 4)].Play ();
+		mario [Random.Range (0, 3)].Play ();
 	}
 	
 	public void StopMario() {
@@ -126,7 +126,7 @@ public class SoundManager : MonoBehaviour {
 
 	#region Fire
 	public void PlayFire() {
-		fire [Random.Range (0, 6)].Play ();
+		fire [Random.Range (0, 5)].Play ();
 	}	
 	#endregion
 
