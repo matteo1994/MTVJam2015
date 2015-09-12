@@ -15,6 +15,8 @@ public class MoveBarrel : MoveComponent
 
     public float deathProbability = 10;
 
+    public float fallSpeed = 1f;
+
     void Awake()
     {
         direction = Vector3.right;
@@ -25,7 +27,7 @@ public class MoveBarrel : MoveComponent
     {
         var tmpPos = this.transform.position;
 
-        tmpPos.y -= 0.25f * Time.deltaTime;
+        tmpPos.y -= fallSpeed * Time.deltaTime;
 
         //Interazione con il muro (cambio di direzione o morte)
         if (transform.position.x >= ConstVar.X_LIMIT - 1f)

@@ -7,11 +7,20 @@ public class FollowMovementRotation : MonoBehaviour {
 
     public void Awake()
     {
-        mover = GetComponent<MovePacman>();
+        mover = transform.parent.GetComponent<MovePacman>();
     }
 
     void Update()
     {
-       // this.transform.forward = mover.direction;
-    }
+        if (mover.direction == Vector3.left || mover.direction == Vector3.right)
+            transform.forward = mover.direction;
+        else
+        {
+            transform.forward = mover.direction;
+            transform.Rotate(0, 0, 90);
+        }
+
+        //transform.forward = mover.direction;
+        //this.transform.LookAt(mover.direction, Vector3.back);
+        }
 }
