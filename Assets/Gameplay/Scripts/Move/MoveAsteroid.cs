@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MoveAsteroid : MoveComponent {
-    public float rotSpeed = 30f;
+    public float rotSpeed = 100f;
 	public float current_speed = 0f;
 	public float max_speed = 50f;
 	public float acceleration = 10f;
