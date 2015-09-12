@@ -34,9 +34,9 @@ public class MovePlatformer : MoveComponent {
 	void Awake() {
         acceleration =  new Cinematic(10f, jumpSpeed);
         y0 = transform.position.y;
-		Debug.LogError ("Y0=" + y0);
+        //Debug.LogError ("Y0=" + y0);
 
-		platformerChar = GetComponent<PlatformerChar> ();
+        platformerChar = GetComponent<PlatformerChar> ();
 
 	}
 
@@ -77,26 +77,26 @@ public class MovePlatformer : MoveComponent {
 
     void Update() {
 		if (transform.position.y < -5.5f) {
-			Debug.LogError("I AM DYING!");
+			//Debug.LogError("I AM DYING!");
 			platformerChar.Kill();
 		}
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Debug.LogError ("COLLISION!");
-		if (other.gameObject.tag == "Platform") {
+        //Debug.LogError ("COLLISION!");
+        if (other.gameObject.tag == "Platform") {
 			Vector3 d = transform.position - other.gameObject.transform.position;
 
-			Debug.LogError("D = "+d);
-			if (d.y<offset) return; 
+            //Debug.LogError("D = "+d);
+            if (d.y<offset) return; 
 
 			current_speed.y = 0f;
 			transform.position = new Vector3(transform.position.x,other.gameObject.transform.position.y+height, transform.position.z);
 			onPlatform = true;
 			isJumping = false;
-			Debug.LogError("LANDED! YO!");
-		}
-	}
+            //Debug.LogError("LANDED! YO!");
+        }
+    }
 	
 	void OnTriggerExit(Collider other) {
 		Vector3 d = transform.position - other.gameObject.transform.position;

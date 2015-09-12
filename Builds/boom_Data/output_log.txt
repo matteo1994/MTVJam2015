@@ -25,7 +25,7 @@ Loading C:\Users\catpi_000\Documents\MTVJam2015\Builds\boom_Data\Managed\DOTween
 Platform assembly: C:\Users\catpi_000\Documents\MTVJam2015\Builds\boom_Data\Managed\DOTween50.dll (this message is harmless)
 Loading C:\Users\catpi_000\Documents\MTVJam2015\Builds\boom_Data\Managed\DOTween50.dll into Unity Child Domain
 Platform assembly: C:\Users\catpi_000\Documents\MTVJam2015\Builds\boom_Data\Managed\System.Core.dll (this message is harmless)
-- Completed reload, in  0.416 seconds
+- Completed reload, in  0.060 seconds
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 XInput1_3.dll not found. Trying XInput9_1_0.dll instead...
@@ -35,79 +35,5 @@ Platform assembly: C:\Users\catpi_000\Documents\MTVJam2015\Builds\boom_Data\Mana
 Platform assembly: C:\Users\catpi_000\Documents\MTVJam2015\Builds\boom_Data\Managed\UnityScript.Lang.dll (this message is harmless)
 Platform assembly: C:\Users\catpi_000\Documents\MTVJam2015\Builds\boom_Data\Managed\Boo.Lang.dll (this message is harmless)
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 2ed4 -> priority: 1 
-  Thread -> id: 22a8 -> priority: 1 
-Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 127.148346 ms
-
-Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 3061.
-Total: 1.264247 ms (FindLiveObjects: 0.097501 ms CreateObjectMapping: 0.060646 ms MarkObjects: 1.013730 ms  DeleteObjects: 0.091902 ms)
-
-SPAWNED PLAYER 0
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-SPAWNED PLAYER 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I AM BEING KILLED 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-PLAYER 1 LIFE 2
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-RESPAWN PLAYER 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-SPAWNED PLAYER 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-I AM BEING KILLED 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-PLAYER 1 LIFE 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-RESPAWN PLAYER 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-SPAWNED PLAYER 1
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/UnityEngineDebugBindings.gen.cpp Line: 64)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.AudioSource:Stop ()
-  at SoundManager.StopPong () [0x00000] in <filename unknown>:0 
-  at MovePacman.OnDestroy () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.AudioSource:Stop ()
-  at SoundManager.StopPong () [0x00000] in <filename unknown>:0 
-  at MovePacman.OnDestroy () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.AudioSource:Stop ()
-  at SoundManager.StopPong () [0x00000] in <filename unknown>:0 
-  at MovePacman.OnDestroy () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
-NullReferenceException
-  at (wrapper managed-to-native) UnityEngine.AudioSource:Stop ()
-  at SoundManager.StopPong () [0x00000] in <filename unknown>:0 
-  at MovePacman.OnDestroy () [0x00000] in <filename unknown>:0 
- 
-(Filename:  Line: -1)
-
+  Thread -> id: 2598 -> priority: 1 
+  Thread -> id: 22d4 -> priority: 1 

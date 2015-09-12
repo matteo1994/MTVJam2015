@@ -19,9 +19,14 @@ public class AbstractCharacter : MonoBehaviour {
 	FireComponent fireComponent;
     AIComponent aiComponent;
 
+    bool invicible = false;
+    float invincibleTime = 1f;
+
     public bool isPlayer = false;
     public virtual void Start()
     {
+        invicible = true;
+
         explosionPrefabGo = Resources.Load("Explosion") as GameObject;
         if (isPlayer) mainCharacter = this;
         moveComponent = GetComponent<MoveComponent>();
@@ -29,7 +34,7 @@ public class AbstractCharacter : MonoBehaviour {
         aiComponent = GetComponent<AIComponent>();
     }
 
-    void Update () {
+    virtual public void Update () {
         if (aiComponent != null)
             aiComponent.GetInput(input);
         else
@@ -40,6 +45,11 @@ public class AbstractCharacter : MonoBehaviour {
 
 		if (fireComponent != null && input.fire)
 			fireComponent.Fire (input);
+
+
+        invincibleTime -= Time.deltaTime;
+        if (invincibleTime < 0)
+            invicible = false;
     }
 
     void GetPlayerInput(InputParams _input, int playerId)
@@ -61,7 +71,7 @@ public class AbstractCharacter : MonoBehaviour {
     #region Collisions
     void OnCollisionEnter(Collision other)
     {
-        if (canDie)
+        if (canDie && !invicible)
         {
             //Debug.Log(this.name + " HIT " + other.name);
             //Debug.Log(this.name + " DIES " + playerId);
@@ -76,9 +86,12 @@ public class AbstractCharacter : MonoBehaviour {
         }
     }
 
+    bool dead = false;
     public void Kill()
     {
-        Debug.Log("I AM BEING KILLED " + playerId);
+        if (dead) return;
+        dead = true;
+        Debug.Log("I AM BEING KILLED " + playerId + " " + this.name);
 
         Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
         //SoundManager.instance.PlayExplosion();
