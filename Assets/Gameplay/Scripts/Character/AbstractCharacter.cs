@@ -20,7 +20,7 @@ public class AbstractCharacter : MonoBehaviour {
     AIComponent aiComponent;
 
     public bool isPlayer = false;
-    void Start()
+    public virtual void Start()
     {
         explosionPrefabGo = Resources.Load("Explosion") as GameObject;
         if (isPlayer) mainCharacter = this;
@@ -80,9 +80,6 @@ public class AbstractCharacter : MonoBehaviour {
     {
         Debug.Log("I AM BEING KILLED " + playerId);
 
-        if (this.isPlayer)
-            GameController.Instance.KillPlayer(playerId);
-
         Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
         //SoundManager.instance.PlayExplosion();
 
@@ -93,6 +90,10 @@ public class AbstractCharacter : MonoBehaviour {
 
         if (!isPlayer)
             ScoreGUI.scoreGUI.score += 100;
+
+        if (this.isPlayer)
+            GameController.Instance.KillPlayer(playerId);
+
     }
 
     #endregion

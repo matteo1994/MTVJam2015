@@ -1,16 +1,40 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class AIGhost : AIComponent {
+public class AIGhost : AIComponent {
+
+    private float t = 1;
 
     public override void GetInput(InputParams _input)
-    {
-        var distance = (AbstractCharacter.mainCharacter.transform.position - transform.position);
-        _input.Clear();
-        if (Mathf.Abs(distance.x) > Mathf.Abs(distance.y))
-            _input.x = Mathf.Sign(distance.x);
-        else
-            _input.y = Mathf.Sign(distance.y);
+    { 
+        t += Time.deltaTime;
+
+        if (t > 1f)
+        {
+
+            float minDist = 1000000000;
+            Transform target = null;
+            foreach (var pl in GameController.Instance.playerController.currentPlayers)
+            {
+                float distance = (pl.transform.position - transform.position).magnitude;
+                if (distance < minDist)
+                {
+                    minDist = distance;
+                    target = pl.transform;
+                }
+            }
+
+            t = 0.0f;
+            _input.Clear();
+            var dist = target.position - transform.position;
+            if (Mathf.Abs(dist.x) > Mathf.Abs(dist.y))
+                _input.x = Mathf.Sign(dist.x);
+            else
+                _input.y = Mathf.Sign(dist.y);
+
+
+        }
+
     }
 
 }

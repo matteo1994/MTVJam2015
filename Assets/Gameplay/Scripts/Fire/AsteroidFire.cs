@@ -8,10 +8,12 @@ public class AsteroidFire : FireComponent {
 
     public float noShootDelay = 1.0f;
 
+    public float xOffset = 0;
+
     public override void Fire(InputParams _input) {
 		if (fire_enabled) {
 			SoundManager.instance.PlayFire();
-			Instantiate (missile, transform.position + transform.up * 1.3f, transform.rotation);
+			Instantiate (missile, transform.position + transform.up * 1.3f + transform.right* xOffset, transform.rotation);
 			fire_enabled = false;
 			StartCoroutine(CannotFire());
 		}

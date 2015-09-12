@@ -655,6 +655,8 @@ ModelImporter:
     101294: TireSemi 7
     101296: TireSemi 8
     101298: TireSemi 9
+    101300: ske403A 1
+    101302: SketchUp
     400000: //RootNode
     400002: Commercial_Truck_Transfer
     400004: ID100
@@ -1305,6 +1307,8 @@ ModelImporter:
     401294: TireSemi 7
     401296: TireSemi 8
     401298: TireSemi 9
+    401300: ske403A 1
+    401302: SketchUp
     2300000: Commercial_Truck_Transfer
     2300002: ID100
     2300004: ID100 1
@@ -1924,6 +1928,7 @@ ModelImporter:
     2301232: TireSemi 7
     2301234: TireSemi 8
     2301236: TireSemi 9
+    2301238: ske403A
     3300000: Commercial_Truck_Transfer
     3300002: ID100
     3300004: ID100 1
@@ -2543,6 +2548,7 @@ ModelImporter:
     3301232: TireSemi 7
     3301234: TireSemi 8
     3301236: TireSemi 9
+    3301238: ske403A
     4300000: ske5930
     4300002: ID1448
     4300004: ID1454
@@ -3162,6 +3168,7 @@ ModelImporter:
     4301232: ID900
     4301234: ID908
     4301236: ID916
+    4301238: ske403A
     9500000: //RootNode
   materials:
     importMaterials: 1

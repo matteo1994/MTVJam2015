@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour {
 
     public float respawnDelay = 2.0f;
 
+    public float startTimeScale = 1;
+
 
     public int pl1Life = 3;
     public int pl2Life = 3;
@@ -37,6 +39,7 @@ public class GameController : MonoBehaviour {
     void Start () {
         waveSpawner = GetComponentInChildren<WaveSpawner>();
         playerController = GetComponentInChildren<PlayerController>();
+        Time.timeScale = startTimeScale;
 
         Invoke("RespawnPlayers", introPause);
         Invoke("NewWave", introPause + wavePause);
@@ -82,9 +85,12 @@ public class GameController : MonoBehaviour {
         playerController.SpawnNewPlayer(1);
     }
 
+    public Flash flash;
     void NewWave()
     {
         waveSpawner.Clear();
+        flash.DoFlash();
+
         waveSpawner.SpawnWave();
         Invoke("ClearWave", waveDuration);
         Invoke("NewWave", waveDuration + wavePause);

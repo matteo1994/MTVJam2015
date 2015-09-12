@@ -5,6 +5,7 @@ public class MovePacman : MoveComponent {
     public float speed = 10;
 
 	public void Start() {
+        direction = Vector3.up;
 		SoundManager.instance.PlayPacman ();
 	}
 
