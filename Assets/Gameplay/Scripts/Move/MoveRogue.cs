@@ -11,8 +11,7 @@ public class MoveRogue : MoveComponent
     public void Awake()
     {
         //SoundManager.instance.PlayPong();
-
-            transform.position = new Vector3(0, -3.55f, 0);
+        transform.position = new Vector3(0, -3.55f, 0);
     }
 
     [HideInInspector]

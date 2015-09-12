@@ -7,8 +7,8 @@ public class MovePlatformer : MoveComponent {
 	PlatformerChar platformerChar;
 
 	float y0 = 0f;
-	float height = 1.2f; 
-	float offset = .1f;
+	public float height = 1.2f; 
+	float offset = .51f;
 
 	class Cinematic {
 		public float x;
@@ -22,16 +22,18 @@ public class MovePlatformer : MoveComponent {
 
 	public bool onPlatform = true;
 	public bool isJumping = false;
-	private float speed = 5f;
+    public float speed = 5f;
+	public float gravity = 50f;
+    public float jumpSpeed = 50f;
 
-	private float gravity = 50f;
+    public float maxSpeed = 100;
 
-
-	Cinematic current_speed = new Cinematic(0f,0f);
-	Cinematic acceleration = new Cinematic(10f,20f);
+    Cinematic current_speed = new Cinematic(0f,0f);
+	Cinematic acceleration = new Cinematic(10f,0);
 
 	void Awake() {
-		y0 = transform.position.y;
+        acceleration =  new Cinematic(10f, jumpSpeed);
+        y0 = transform.position.y;
 		Debug.LogError ("Y0=" + y0);
 
 		platformerChar = GetComponent<PlatformerChar> ();
@@ -45,9 +47,11 @@ public class MovePlatformer : MoveComponent {
 		if (!onPlatform) {
 			current_speed.y = current_speed.y + acceleration.y * Time.deltaTime - gravity*Time.deltaTime;
 			transform.position = transform.position + Time.deltaTime*(transform.up*current_speed.y+transform.right*current_speed.x);
-		}
+        }
 
-		if (onPlatform) {
+
+
+        if (onPlatform) {
 			if (!isJumping && _input.fire) {
 
 				isJumping = true;
@@ -57,17 +61,21 @@ public class MovePlatformer : MoveComponent {
 
 			} 
 
-			if (_input.x!=0)
-				current_speed.x = Mathf.Sign (_input.x)*speed;
-			else current_speed.x = 0;
-
 			transform.position = transform.position + Time.deltaTime*(transform.up*current_speed.y+transform.right*current_speed.x);
 
 
-		}
+        }
+
+        if (_input.x != 0)
+            current_speed.x = Mathf.Sign(_input.x) * speed;
+        else current_speed.x = 0;
+
+        if (current_speed.y < -maxSpeed)
+            current_speed.y = -maxSpeed;
+
     }
 
-	void Update() {
+    void Update() {
 		if (transform.position.y < -5.5f) {
 			Debug.LogError("I AM DYING!");
 			platformerChar.Kill();

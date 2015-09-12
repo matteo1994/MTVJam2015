@@ -3,6 +3,9 @@ using System.Collections;
 
 public class MoveSpaceInv : MoveComponent {
 
+    public float timeForDown = 2.0f;
+    public float timeForUp = 1.0f;
+
     public float speed = 2f;
     public Vector3 direction = Vector3.right;
     private bool canChangeDir = true;
@@ -39,14 +42,14 @@ public class MoveSpaceInv : MoveComponent {
 
     IEnumerator GoDown()//cambia solo dopo essere scesi
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(timeForDown);
         tmpDir = direction; // save the old statement
         direction = Vector3.down;
     }
 
     IEnumerator ChangeDir()//cambia solo dopo essere scesi
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(timeForDown + timeForUp);
         if (tmpDir == Vector3.left || tmpDir == Vector3.right)
             direction = -1 * tmpDir;
         flag = true;

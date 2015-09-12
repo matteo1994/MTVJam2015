@@ -55,6 +55,7 @@ public class AbstractCharacter : MonoBehaviour {
     public void SetPlayer(int playerId)
     {
         this.playerId = playerId;
+        isPlayer = true;
     }
 
     #region Collisions
@@ -65,29 +66,33 @@ public class AbstractCharacter : MonoBehaviour {
             //Debug.Log(this.name + " HIT " + other.name);
             //Debug.Log(this.name + " DIES " + playerId);
             Kill();
-            if (this.isPlayer)
-            {
-                GameController.Instance.KillPlayer(playerId);
-            }
 
-            ScoreGUI.scoreGUI.score += 200;
         } 
 
         if (canKill)
         {
-            Debug.Log(this.name + " KILLS");
-            Destroy(other.gameObject);
-
-            ScoreGUI.scoreGUI.score += 50;
+            //Debug.Log(this.name + " KILLS");
+            other.gameObject.GetComponent<AbstractCharacter>().Kill();
         }
     }
 
     public void Kill()
     {
-        Debug.Log("I AM BEING KILLED");
+        Debug.Log("I AM BEING KILLED " + playerId);
+
+        if (this.isPlayer)
+            GameController.Instance.KillPlayer(playerId);
 
         Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
+        //SoundManager.instance.PlayExplosion();
+
         Destroy(this.gameObject);
+
+        if (isPlayer)
+            ScoreGUI.scoreGUI.score -= 1000;
+
+        if (!isPlayer)
+            ScoreGUI.scoreGUI.score += 100;
     }
 
     #endregion
