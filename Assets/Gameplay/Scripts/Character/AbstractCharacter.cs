@@ -62,12 +62,13 @@ public class AbstractCharacter : MonoBehaviour {
     {
         if (canDie)
         {
-            Debug.Log(this.name + " DIES " + playerId);
-            Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-
+            //Debug.Log(this.name + " HIT " + other.name);
+            //Debug.Log(this.name + " DIES " + playerId);
+            Kill();
             if (this.isPlayer)
+            {
                 GameController.Instance.KillPlayer(playerId);
+            }
 
             ScoreGUI.scoreGUI.score += 200;
         } 
@@ -80,5 +81,14 @@ public class AbstractCharacter : MonoBehaviour {
             ScoreGUI.scoreGUI.score += 50;
         }
     }
+
+    public void Kill()
+    {
+        Debug.Log("I AM BEING KILLED");
+
+        Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
+        Destroy(this.gameObject);
+    }
+
     #endregion
 }

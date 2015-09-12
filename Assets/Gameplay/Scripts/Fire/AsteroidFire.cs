@@ -6,6 +6,8 @@ public class AsteroidFire : FireComponent {
 	public GameObject missile;
 	private bool fire_enabled = true;
 
+    public float noShootDelay = 1.0f;
+
     public override void Fire(InputParams _input) {
 		if (fire_enabled) {
 			SoundManager.instance.PlayFire();
