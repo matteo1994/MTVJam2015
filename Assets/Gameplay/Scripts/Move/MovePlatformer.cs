@@ -76,11 +76,11 @@ public class MovePlatformer : MoveComponent {
     }
 
     void Update() {
-		if (transform.position.y < -5.5f) {
+		if (transform.position.y < -10f) {
 			//Debug.LogError("I AM DYING!");
 			platformerChar.Kill();
 		}
-	}
+	} 
 
 	void OnTriggerEnter(Collider other) {
         //Debug.LogError ("COLLISION!");

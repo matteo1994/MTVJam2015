@@ -21,9 +21,12 @@ public class MoveAsteroid : MoveComponent {
         //transform.up = direction;
 
         if (_input.y > 0)
-            direction = direction + transform.up * _input.y * Time.deltaTime;
+            direction = direction + transform.up * _input.y * Time.deltaTime * acceleration;
 
-        this.transform.position = this.transform.position + direction * current_speed * Time.deltaTime;
+        if (direction.magnitude > max_speed)
+            direction = direction.normalized * max_speed;
+
+        this.transform.position = this.transform.position + direction * Time.deltaTime;
 
         Debug.DrawLine(this.transform.position, this.transform.position + transform.up * 2);
     }

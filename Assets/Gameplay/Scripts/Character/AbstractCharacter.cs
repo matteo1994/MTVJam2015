@@ -93,13 +93,14 @@ public class AbstractCharacter : MonoBehaviour {
         dead = true;
         Debug.Log("I AM BEING KILLED " + playerId + " " + this.name);
 
-        Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
+        if (explosionPrefabGo != null)
+            Instantiate(explosionPrefabGo, this.transform.position, Quaternion.identity);
         //SoundManager.instance.PlayExplosion();
 
         Destroy(this.gameObject);
 
         if (isPlayer)
-            ScoreGUI.scoreGUI.score -= 1000;
+            ScoreGUI.scoreGUI.score -= 300;
 
         if (!isPlayer)
             ScoreGUI.scoreGUI.score += 100;
