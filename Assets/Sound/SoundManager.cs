@@ -38,6 +38,7 @@ public class SoundManager : MonoBehaviour {
 			Destroy (gameObject);
 		}
 
+
 	}
 
 	void Start() {

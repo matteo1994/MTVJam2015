@@ -6,7 +6,7 @@ public class MovePong : MoveComponent {
 	private float speed = 10f;
     public bool is_vertical = false;
 
-	public void Awake()
+	public void Start()
 	{
 		SoundManager.instance.PlayPong ();
 
