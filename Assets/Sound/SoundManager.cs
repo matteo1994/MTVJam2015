@@ -69,8 +69,11 @@ public class SoundManager : MonoBehaviour {
 	}
 	
 	public void StopPacman() {
-		pacman.Stop ();
-		audio_background [current_background].volume = 1f;
+        if (pacman)
+        {
+            pacman.Stop();
+            audio_background[current_background].volume = 1f;
+        }
 	}
 	#endregion
 
@@ -110,7 +113,7 @@ public class SoundManager : MonoBehaviour {
 	}
 	
 	public void StopPong() {
-		pong.Stop ();
+		if (pong) pong.Stop ();
 	}
 	#endregion
 

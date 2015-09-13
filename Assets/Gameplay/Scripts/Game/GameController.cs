@@ -62,15 +62,20 @@ public class GameController : MonoBehaviour {
     {
         if (id == 0)
         {
-            pl1Life--;
+            if (pl1Life > 0) pl1Life--;
             Debug.Log("PLAYER 0 LIFE " + pl1Life);
             Invoke("RespawnPlayer1", respawnDelay);
         }
         else
         {
-            pl2Life--;
+            if (pl2Life > 0) pl2Life--;
             Debug.Log("PLAYER 1 LIFE " + pl2Life);
             Invoke("RespawnPlayer2", respawnDelay);
+        }
+
+        if (pl1Life <= 0 && pl2Life <= 0)
+        {
+            Application.LoadLevel("credits");
         }
     }
 

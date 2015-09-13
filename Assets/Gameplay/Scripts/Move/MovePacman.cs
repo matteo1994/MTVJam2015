@@ -32,7 +32,7 @@ public class MovePacman : MoveComponent {
     }
 
 	public void OnDestroy() {
-		SoundManager.instance.StopPong ();
+		SoundManager.instance.StopPacman ();
 	}
 
 }

@@ -16,6 +16,7 @@ public class AIGhost : AIComponent {
             Transform target = null;
             foreach (var pl in GameController.Instance.playerController.currentPlayers)
             {
+                if (pl == null) continue;
                 float distance = (pl.transform.position - transform.position).magnitude;
                 if (distance < minDist)
                 {
@@ -24,14 +25,16 @@ public class AIGhost : AIComponent {
                 }
             }
 
-            t = 0.0f;
-            _input.Clear();
-            var dist = target.position - transform.position;
-            if (Mathf.Abs(dist.x) > Mathf.Abs(dist.y))
-                _input.x = Mathf.Sign(dist.x);
-            else
-                _input.y = Mathf.Sign(dist.y);
-
+            if (target != null)
+            {
+                t = 0.0f;
+                _input.Clear();
+                var dist = target.position - transform.position;
+                if (Mathf.Abs(dist.x) > Mathf.Abs(dist.y))
+                    _input.x = Mathf.Sign(dist.x);
+                else
+                    _input.y = Mathf.Sign(dist.y);
+            }
 
         }
 

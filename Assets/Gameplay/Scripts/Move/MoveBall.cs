@@ -25,4 +25,5 @@ public class MoveBall : MoveComponent {
         this.transform.position = tmpPos;
     }
 
+
 }

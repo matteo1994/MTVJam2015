@@ -11,6 +11,8 @@ public class PlatformerChar : AbstractCharacter {
         SoundManager.instance.PlayMario ();
 
         levelGo.transform.parent = null;
+
+        this.transform.position += Vector3.down * 4;
     }
 
     void OnDestroy()
