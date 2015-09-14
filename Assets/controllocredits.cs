@@ -13,27 +13,30 @@ public class controllocredits : MonoBehaviour {
 	public GameObject pg7;
 	public GameObject pg8;
 
-	private float readstep;
+	private float readstep=0f;
 	private float delay=1f;
-
+	private float timerint=0f;
 
 	void Start () {
-		readstep = Time.time + delay;
+		readstep = timerint + delay;
 	}
 	
 
+
 	void Update () {
-		if (Time.time > readstep)
+		if (timerint > readstep)
 		{
-			readstep = Time.time + delay;
+			readstep = timerint + delay;
 			
 			StartCoroutine(readmore());
 		}
+		timerint+= Time.deltaTime;
+		Debug.Log ("time "+timerint);
 	}
 	public IEnumerator readmore()
 	{
 		yield return new WaitForSeconds(1);
-
+		Debug.Log ("steptext "+readstep);
 		//gameover - fadeout
 		if (readstep > 6) {
 			gameover_text.SetActive(false);
@@ -71,7 +74,7 @@ public class controllocredits : MonoBehaviour {
 		}
 		if (readstep > 50) {
 			//pg8.SetActive(false);
-			Application.LoadLevel("introGravity_Remix");
+			Application.LoadLevel("Gameplay Michele");
 		}
 	
 	}
