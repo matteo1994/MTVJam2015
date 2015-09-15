@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour {
 
+    public PLCursor plCursor1;
+    public PLCursor plCursor2;
+
     public GameObject[] spawnablePlayers;
 
     public List<AbstractCharacter> currentPlayers = new List<AbstractCharacter>();
@@ -19,6 +22,12 @@ public class PlayerController : MonoBehaviour {
         var playerGo = Spawn(playerPrefab, this.transform.position);
         playerGo.GetComponent<AbstractCharacter>().SetPlayer(playerId);
         currentPlayers.Add(playerGo.GetComponent<AbstractCharacter>());
+
+        if (playerId == 0)
+            plCursor1.targetTr = playerGo.transform;
+        else
+            plCursor2.targetTr = playerGo.transform;
+
         Debug.Log("SPAWNED PLAYER " + playerId + " " + playerGo.name);
     }
 
