@@ -21,7 +21,7 @@ public class PLCursor : MonoBehaviour {
             + new Vector3(-Screen.width / 2, -Screen.height / 2)
             + Vector3.up*50;
 
-        textUi.text = "PL" + playerId.ToString();
+        textUi.text = "P" + playerId.ToString();
     }
 
 }
